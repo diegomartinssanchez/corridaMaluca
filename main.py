@@ -32,9 +32,9 @@ while True:
     tela.blit(fundo, (0, 0))
     tela.blit(carro1, (movXCar1, posYCar1))
     tela.blit(carro2, (movXCar2, posYCar2))
-
-    movXCar1 = movXCar1 + random.randint(0,10)
-    movXCar2 = movXCar1 + random.randint(0,10)
+    if not acabou:
+        movXCar1 = movXCar1 + random.randint(0,10)
+        movXCar2 = movXCar1 + random.randint(0,10)
 
     if movXCar1 > 1000:
        movXCar1 = 0
@@ -55,7 +55,7 @@ while True:
         acabou = True
         pygame.mixer.music.stop()
         pygame.mixer.Sound.play(vitoria)
-        
+
     elif posYCar2 == 480 and movXCar2 >= 900 and movXCar2 > movXCar1:
         tela.blit(textoAmarelo, (270,180))
         acabou = True
